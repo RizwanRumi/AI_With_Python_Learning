@@ -1,6 +1,4 @@
-sq_list = [x**2 for x in range(10)]  # this produces a list of squares
+a = {2,2,2,1,1, 5,5, 3}
 
-print(sq_list)
+print(a)
 
-sq_iterator = (x**2 for x in range(10))  # this produces an iterator of squares
-print(sq_iterator)
