@@ -1,4 +1,17 @@
-a = {2,2,2,1,1, 5,5, 3}
+how_many_snakes = 1
+snake_string = """
+Welcome to Python3!
 
-print(a)
+             ____
+            / . .\\
+            \  ---<
+             \  /
+   __________/ /
+-=:___________/
+
+<3, Juno
+"""
+
+
+print(snake_string * how_many_snakes)
 
