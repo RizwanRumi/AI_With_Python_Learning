@@ -12,6 +12,7 @@ class Pants:
     def discount(self, discount):
         return self.price * (1 - discount)
 
+'''
 if __name__ == "__main__":
     def check_results():
         pants = Pants('red', 35, 36, 15.12)
@@ -27,5 +28,5 @@ if __name__ == "__main__":
 
         print('You made it to the end of the check. Nice job!')
 
-
 check_results()
+'''
