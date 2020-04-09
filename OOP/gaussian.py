@@ -51,6 +51,7 @@ class Gaussian:
         plt.title('Histogram of Data')
         plt.xlabel('data')
         plt.ylabel('count')
+        plt.show()
 
     def pdf(self, x):
         return (1.0 / (self.stdev * math.sqrt(2 * math.pi))) * math.exp(-0.5 * ((x - self.mean) / self.stdev) ** 2)
@@ -133,7 +134,7 @@ if __name__ == '__main__':
     print(gaussian.stdev)
 
     gaussian.plot_histogram()
-    plt.show()
+    # plt.show()
 
     gaussian.plot_histogram_pdf()
-    plt.show()
+    # plt.show()

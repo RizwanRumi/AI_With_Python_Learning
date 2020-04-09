@@ -2,9 +2,10 @@
 
 import math
 import matplotlib.pyplot as plt
+from OOP.Distribution import Distribution
 
 
-class Gaussian:
+class Gaussian(Distribution):
     """ Gaussian distribution class for calculating and
     visualizing a Gaussian distribution.
 
@@ -17,9 +18,7 @@ class Gaussian:
 
     def __init__(self, mu=0, sigma=1):
 
-        self.mean = mu
-        self.stdev = sigma
-        self.data = []
+        Distribution.__init__(self, mu, sigma)
 
     def calculate_mean(self):
 
@@ -56,7 +55,7 @@ class Gaussian:
         else:
             n = len(self.data)
 
-        mean = self.mean
+        mean = self.calculate_mean()
 
         sigma = 0
 
@@ -68,32 +67,6 @@ class Gaussian:
         self.stdev = sigma
 
         return self.stdev
-
-    def read_data_file(self, file_name, sample=True):
-
-        """Function to read in data from a txt file. The txt file should have
-        one number (float) per line. The numbers are stored in the data attribute.
-        After reading in the file, the mean and standard deviation are calculated
-
-        Args:
-            file_name (string): name of a file to read from
-
-        Returns:
-            None
-
-        """
-
-        with open(file_name) as file:
-            data_list = []
-            line = file.readline()
-            while line:
-                data_list.append(int(line))
-                line = file.readline()
-        file.close()
-
-        self.data = data_list
-        self.mean = self.calculate_mean()
-        self.stdev = self.calculate_stdev(sample)
 
     def plot_histogram(self):
         """Function to output a histogram of the instance variable data using
@@ -201,6 +174,7 @@ class Gaussian:
 
         return "mean {}, standard deviation {}".format(self.mean, self.stdev)
 
+
 '''
 # Unit tests to check your solution
 
@@ -252,12 +226,24 @@ unittest.TextTestRunner().run(tests_loaded)
 '''
 
 if __name__ == '__main__':
-    gaussian_one = Gaussian(5, 2)
-    gaussian_two = Gaussian(10, 1)
+    # initialize two gaussian distributions
+    gaussian_one = Gaussian(25, 3)
+    gaussian_two = Gaussian(30, 2)
 
-    gaussian_sum = gaussian_one + gaussian_two
+    # initialize a third gaussian distribution reading in a data efile
+    gaussian_three = Gaussian()
+    gaussian_three.read_data_file('numbers.txt')
+    gaussian_three.calculate_mean()
+    gaussian_three.calculate_stdev()
 
-    print(gaussian_sum.mean)
-    print(gaussian_sum.stdev)
+    print(gaussian_one.mean)
+    print(gaussian_two.mean)
 
+    print(gaussian_one.stdev)
+    print(gaussian_two.stdev)
 
+    print(gaussian_three.mean)
+    print(gaussian_three.stdev)
+
+    # gaussian_three.plot_histogram_pdf()
+    # gaussian_one + gaussian_two
