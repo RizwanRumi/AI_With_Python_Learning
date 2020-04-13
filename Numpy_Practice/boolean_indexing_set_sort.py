@@ -80,6 +80,7 @@ x.sort()
 print()
 print('x after sorting:', x)
 '''
+
 '''
 # We create an unsorted rank 2 ndarray
 X = np.random.randint(1,11,size=(5,5))
@@ -97,3 +98,4 @@ print('X with sorted columns :\n', np.sort(X, axis = 0))
 print()
 print('X with sorted rows :\n', np.sort(X, axis = 1))
 '''
+
