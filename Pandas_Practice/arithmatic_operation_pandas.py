@@ -34,7 +34,18 @@ print()
 
 print('Amount of oranges + 4 = ', fruits.loc['oranges'] + 4)
 
-#important accessing elements
+# We multiply apples and oranges by 2
+print('We double the amount of apples and oranges:\n', fruits[['apples', 'oranges']] * 2)
+print()
+
+# We divide apples and oranges by 2
+print('We half the amount of apples and oranges:\n', fruits.loc[['apples', 'oranges']] / 2)
+
+# mixed data type
+groceries = pd.Series(data=[30,6,'Yes','No'], index=['eggs','apples','milk','bread'])
+print(groceries * 2)
+
+# important accessing elements
 print(fruits.loc['oranges'])
 print(fruits.loc[['oranges']])
 print(fruits.iloc[0])
